@@ -1,6 +1,8 @@
 package com.shinhan.GitProject;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -59,7 +61,19 @@ public class GitProjectDAO {
 	}
 	
 	//원정
-	private int delete() {
-		return 0;
+	public int delete(int id) {
+		int result = 0;
+		Connection conn = DBUtill.getConnection();
+		PreparedStatement st = null;
+		String sql = "delete from Board where id = ?";
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, id);
+			result = st.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

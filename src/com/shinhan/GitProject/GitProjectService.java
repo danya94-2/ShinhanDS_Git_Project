@@ -9,5 +9,9 @@ public class GitProjectService {
 	public List<GitProjectDTO> selectAll() {
 		return gitProjectDAO.selectAll();
 	}
+  
+  public int deleteById(int id) {
+		return gitProjectDAO.delete(id);
+	}
 	
 }
