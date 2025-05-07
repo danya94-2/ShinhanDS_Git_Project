@@ -1,5 +1,4 @@
 package com.shinhan.GitProject;
-
 import java.util.List;
 
 public class GitProjectService {
@@ -14,4 +13,8 @@ public class GitProjectService {
 		return gitProjectDAO.delete(id);
 	}
 	
+  public int update(GitProjectDTO update) {
+		int result = gitprojectDAO.update(update);
+		return result;
+	}
 }
