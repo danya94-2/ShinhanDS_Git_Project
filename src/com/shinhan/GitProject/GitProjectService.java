@@ -1,5 +1,13 @@
 package com.shinhan.GitProject;
 
-public class GitProjectService {
+import java.util.List;
 
+public class GitProjectService {
+	
+	GitProjectDAO gitProjectDAO = new GitProjectDAO();
+		
+	public List<GitProjectDTO> selectAll() {
+		return gitProjectDAO.selectAll();
+	}
+	
 }
