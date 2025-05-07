@@ -3,7 +3,7 @@ package com.shinhan.GitProject;
 public class GitProjectView {
 
 	
-	public static void displayUpdate(GitProjectDTO update) {
+	public static void display(GitProjectDTO update) {
 		if(update == null) {
 			System.out.println("존재하지 않는 게시글입니다.");
 			return;
