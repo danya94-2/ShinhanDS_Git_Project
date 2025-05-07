@@ -1,6 +1,7 @@
 package com.shinhan.GitProject;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -44,6 +45,32 @@ public class GitProjectDAO {
 				.content(rs.getString("contenc"))
 				.build();
 		return list;
+	}
+	
+	//selectByWriter
+	public List<GitProjectDTO> selectByWriter(String writer) {
+		List<GitProjectDTO> gitList = new ArrayList<GitProjectDTO>();
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from Board where writer = ? ";
+		
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, writer);
+			rs = st.executeQuery();
+			
+			while(rs.next()) {
+				GitProjectDTO list = makeList(rs);
+				gitList.add(list);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbDisconnect(conn, st, rs);
+		}
+		
+		return gitList;
 	}
 
 	//대현

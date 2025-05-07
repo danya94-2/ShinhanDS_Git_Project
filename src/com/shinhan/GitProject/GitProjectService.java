@@ -10,4 +10,8 @@ public class GitProjectService {
 		return gitProjectDAO.selectAll();
 	}
 	
+	public List<GitProjectDTO> selectByWriter(String writer) {
+		return gitProjectDAO.selectByWriter(writer);
+	}
+	
 }
