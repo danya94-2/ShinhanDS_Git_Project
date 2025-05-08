@@ -17,14 +17,7 @@ public class GitProjectDTO {
 	private Date createdDate;
 	private String title;
 	private String content;
-	
-	
-	@Override
-	public String toString() {
-		return "GitProjectDTO [id=" + id + ", writer=" + writer + ", createdDate=" + createdDate + ", title=" + title
-				+ ", content=" + content + "]";
-	}
-	
-	
+	private String password;
+	private int qaType;
 }
 
